@@ -1,1 +1,56 @@
-<p>create-page works!</p>
+<section class="addPost">
+  <form class="addPost__form form" [formGroup]="formEditor" (ngSubmit)="submit()">
+    <h3>Выбери вид поста:</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>Вид поста</mat-label>
+      <mat-select formControlName="category">
+        <mat-option value="Электроника">Электроника</mat-option>
+        <mat-option value="Спорт">Спорт</mat-option>
+      </mat-select>
+      <mat-error *ngIf="formEditor.get('category')?.errors?.['required']">
+        <p><strong>ОБЯЗАТЕЛЬНО</strong> выбери выд поста</p>
+      </mat-error>
+    </mat-form-field>
+
+    <h3>Придумай заголовок поста:</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>Заголовок</mat-label>
+      <input matInput formControlName="title">
+    <mat-error *ngIf="formEditor.get('title')?.errors?.['required']">
+      <p><strong>ОБЯЗАТЕЛЬНО</strong> придумай заголовок для поста</p>
+    </mat-error>
+    </mat-form-field>
+    <h3>Придумай краткое описание поста:</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>Описание</mat-label>
+      <input matInput formControlName="description">
+      <mat-error *ngIf="formEditor.get('description')?.errors?.['required']">
+        <p><strong>ОБЯЗАТЕЛЬНО</strong> придумай краткое описание для поста</p>
+      </mat-error>
+    </mat-form-field>
+    <div class="form__editor">
+      <h3>Внеси текстовый контент поста:</h3>
+      <quill-editor [modules]="quillConfig" formControlName="content" placeholder="В этом поле можешь внести основной контент своего поста"></quill-editor>
+      <mat-error *ngIf="formEditor.get('content')?.errors?.['required']">
+        <p><strong>ОБЯЗАТЕЛЬНО</strong> добавь текст в свой пост</p>
+      </mat-error>
+    </div>
+    <div class="form__editor">
+      <h3>Добавь фотографию:</h3>
+      <quill-editor [modules]="quillConfigImg"  placeholder="Вставь в этом поле фото для своего поста" formControlName="img"></quill-editor>
+    </div>
+    <mat-error *ngIf="formEditor.get('img')?.errors?.['required']">
+      <p><strong>ОБЯЗАТЕЛЬНО</strong> добавь фотку</p>
+    </mat-error>
+    <button
+      class="form__btn"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="formEditor.invalid"
+    >
+      Создать
+    </button>
+  </form>
+</section>
+

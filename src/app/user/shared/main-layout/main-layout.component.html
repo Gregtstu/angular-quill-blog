@@ -1,2 +1,20 @@
-<p>main-layout works!</p>
+<mat-toolbar color="primary">
+  <mat-icon>assignment icon</mat-icon>
+  <span style="margin-left: 10px">Angular Blog</span>
+  <span class="example-spacer"></span>
+  <nav class="navigation">
+    <ul class="navigation__list">
+      <li class="navigation__item" [routerLink]="['/']">
+        <a class="navigation__link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Все посты</a>
+      </li>
+      <li class="navigation__item" [routerLink]="['/create']">
+        <a class="navigation__link" routerLinkActive="active">Создать</a>
+      </li>
+      <li class="navigation__item" [routerLink]="['/favorite']">
+        <a class="navigation__link" routerLinkActive="active">Избранные</a>
+      </li>
+    </ul>
+  </nav>
+</mat-toolbar>
+
 <router-outlet></router-outlet>

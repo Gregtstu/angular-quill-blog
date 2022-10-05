@@ -1,0 +1,30 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.navigation {
+  width: 50%;
+  margin-right: 50px;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  &__link:hover {
+    color: tomato;
+  }
+
+  &__link.active {
+    color: tomato;
+  }
+
+}
+
