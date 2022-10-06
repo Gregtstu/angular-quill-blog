@@ -1,8 +1,8 @@
 <section class="allPosts">
-
+  <div class="wrapper" *ngIf="post; else loading">
   <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <mat-label>Поиск...</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="введи ключевое слово" #input>
   </mat-form-field>
 
   <div class="mat-elevation-z8">
@@ -21,9 +21,10 @@
           <mat-card class="example-card">
             <mat-card-title-group>
               <mat-card-title>{{row.title}}</mat-card-title>
-              <mat-card-subtitle> Дата побликации: <strong>{{row.data | date}}</strong>, Оставлено комментариев () </mat-card-subtitle>
+              <mat-card-subtitle> Дата побликации: <strong>{{row.data | date}}</strong>, Оставлено комментариев ()
+              </mat-card-subtitle>
               <mat-card-subtitle style="max-width: 900px">{{row.description}}</mat-card-subtitle>
-              <quill-view-html content="{{row.img}}" ></quill-view-html>
+              <quill-view-html content="{{row.img}}"></quill-view-html>
             </mat-card-title-group>
             <mat-card-actions>
               <button [routerLink]="['/post', row.id]" mat-raised-button color="primary">Открыть</button>
@@ -32,11 +33,6 @@
         </td>
       </ng-container>
 
-      <!-- favorite Column -->
-      <ng-container matColumnDef="favorite">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Избранные</th>
-        <td mat-cell *matCellDef="let row"> {{row.favorite}} </td>
-      </ng-container>
 
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -50,6 +46,10 @@
 
     <mat-paginator [pageSizeOptions]="[3, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
+</div>
+  <ng-template #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
 </section>
 
 

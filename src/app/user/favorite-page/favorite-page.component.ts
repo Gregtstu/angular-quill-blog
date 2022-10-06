@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
@@ -10,7 +10,7 @@ import {LocalStorageService} from "../../settings/services/local-storage.service
   templateUrl: './favorite-page.component.html',
   styleUrls: ['./favorite-page.component.scss']
 })
-export class FavoritePageComponent implements OnInit {
+export class FavoritePageComponent implements OnInit, AfterViewInit {
   public displayedColumns: string[] = ['selectCategory', 'title', 'favorite'];
   public dataSource!: MatTableDataSource<any>;
   public posts!: any[];
@@ -28,13 +28,14 @@ export class FavoritePageComponent implements OnInit {
 
   getAllPosts(): void {
     this.posts = this.localStorage.getLs('posts');
-    if (this.posts.length !=0) {
+    if (this.posts.length != 0) {
       this.dataSource = new MatTableDataSource(this.posts);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    } else {
-      alert('У тебя нет избранных постов!');
     }
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
 
@@ -45,5 +46,12 @@ export class FavoritePageComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  delete(id:string) {
+    this.posts = JSON.parse(localStorage.getItem('posts') || '{}');
+    this.posts = this.posts.filter(item => item.id != id);
+    this.localStorage.saveLs('posts', this.posts);
+    this.getAllPosts();
   }
 }

@@ -11,7 +11,7 @@ import {LocalStorageService} from "../../settings/services/local-storage.service
 export class PostPageComponent implements OnInit {
   public postId: any;
   public post: any;
-  public disableded: boolean = false;
+  public disableded!: boolean;
 
   constructor(
     private postServ: PostService,
@@ -26,12 +26,15 @@ export class PostPageComponent implements OnInit {
     this.postServ.getById(this.postId.id).subscribe(res => {
       this.post = res;
     });
+    if(this.localStorage.getLs('posts')){
+      this.localStorage.getLs('posts').forEach((item:any) => {
 
+      })
+    }
   }
 
   addFavorite(id: string): void {
     this.disableded = true;
     this.localStorage.addLs(this.post, this.postId.id);
-    this.localStorage.favorite(id, this.disableded);
   }
 }

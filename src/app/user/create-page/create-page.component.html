@@ -7,8 +7,8 @@
         <mat-option value="Электроника">Электроника</mat-option>
         <mat-option value="Спорт">Спорт</mat-option>
       </mat-select>
-      <mat-error *ngIf="formEditor.get('category')?.errors?.['required']">
-        <strong>ОБЯЗАТЕЛЬНО</strong> выбери выд поста
+      <mat-error *ngIf="formEditor.get('selectCategory')?.errors?.['required']">
+        <strong>ОБЯЗАТЕЛЬНО</strong> выбери вид поста
       </mat-error>
     </mat-form-field>
 

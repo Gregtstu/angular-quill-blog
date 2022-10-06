@@ -35,14 +35,13 @@ export class LocalStorageService {
   favorite(postID:string, disable:boolean):void{
     JSON.parse(localStorage.getItem('posts') || '{}').forEach((item:any) => {
       if (postID === item.id && item.favorite === true){
-        console.log('disable = true;')
         disable = item.favorite;
       }else {
-        console.log('disable = false;')
         disable = false;
       }
     });
   }
+
 
   saveLs(key: string, value: any): void {
     localStorage.setItem(key, JSON.stringify(value));

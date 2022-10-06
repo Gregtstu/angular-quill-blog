@@ -6,8 +6,17 @@
   table {
     width: 100%;
   }
-  .mat-form-field {
+  mat-form-field {
     font-size: 18px;
     width: 100%;
+  }
+  &__btn-icon{
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  mat-spinner {
+    margin: 250px auto;
   }
 }

@@ -1,17 +1,21 @@
 <section class="post-page">
-  <h2 class="post-page__title">{{post.title}}</h2>
-  <mat-card class="post-page__card card" *ngIf="post; else loading">
-    <div class="card__wrapper">
-      <div class="card__img">
-        <quill-view-html [content]="post.img"></quill-view-html>
+  <div class="wrapper" *ngIf="post; else loading">
+    <h2 class="post-page__title">{{post.title}}</h2>
+    <mat-card class="post-page__card card">
+      <div class="card__wrapper">
+        <div class="card__img">
+          <quill-view-html [content]="post.img"></quill-view-html>
+        </div>
+        <mat-card-actions>
+          <button [routerLink]="['/']" mat-raised-button color="primary">Вернуться назад</button>
+          <button mat-raised-button color="accent" (click)="addFavorite(postId.id)" [disabled]="disableded">добавить в
+            избранное
+          </button>
+        </mat-card-actions>
       </div>
-      <mat-card-actions>
-        <button [routerLink]="['/']" mat-raised-button color="primary">Вернуться назад</button>
-        <button mat-raised-button color="accent" (click)="addFavorite(postId.id)" [disabled]="disableded">добавить в избранное</button>
-      </mat-card-actions>
-    </div>
-    <mat-card-content class="card__content" >{{post.content}}</mat-card-content>
-  </mat-card>
+      <mat-card-content class="card__content">{{post.content}}</mat-card-content>
+    </mat-card>
+  </div>
 
   <ng-template #loading>
     <mat-spinner></mat-spinner>

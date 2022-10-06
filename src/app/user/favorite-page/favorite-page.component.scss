@@ -6,8 +6,19 @@
   table {
     width: 100%;
   }
-  .mat-form-field {
+  mat-form-field {
     font-size: 18px;
     width: 100%;
+  }
+
+  mat-icon{
+    color: tomato;
+    font-size: 30px;
+  }
+
+  h2{
+    max-width: 600px;
+    margin: 100px auto;
+    font-size: 40px;
   }
 }
