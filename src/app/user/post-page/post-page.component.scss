@@ -1,0 +1,30 @@
+.post-page {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 70px;
+
+  &__title {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__card {
+    display: flex;
+    justify-content: space-between;
+
+    button:disabled {
+      cursor: not-allowed;
+    }
+
+    .card__content {
+      max-width: 500px;
+      max-height: 80vh;
+      overflow: auto;
+    }
+  }
+
+  mat-spinner {
+    margin: 250px auto;
+  }
+}

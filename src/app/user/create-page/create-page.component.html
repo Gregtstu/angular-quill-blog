@@ -8,7 +8,7 @@
         <mat-option value="Спорт">Спорт</mat-option>
       </mat-select>
       <mat-error *ngIf="formEditor.get('category')?.errors?.['required']">
-        <p><strong>ОБЯЗАТЕЛЬНО</strong> выбери выд поста</p>
+        <strong>ОБЯЗАТЕЛЬНО</strong> выбери выд поста
       </mat-error>
     </mat-form-field>
 
@@ -17,7 +17,7 @@
       <mat-label>Заголовок</mat-label>
       <input matInput formControlName="title">
     <mat-error *ngIf="formEditor.get('title')?.errors?.['required']">
-      <p><strong>ОБЯЗАТЕЛЬНО</strong> придумай заголовок для поста</p>
+      <strong>ОБЯЗАТЕЛЬНО</strong> придумай заголовок для поста
     </mat-error>
     </mat-form-field>
     <h3>Придумай краткое описание поста:</h3>
@@ -25,14 +25,14 @@
       <h3>Придумай краткое описание поста::</h3>
       <quill-editor [modules]="quillConfig" formControlName="description" placeholder="В этом кратко опиши свой пост"></quill-editor>
       <mat-error *ngIf="formEditor.get('description')?.errors?.['required']">
-        <p><strong>ОБЯЗАТЕЛЬНО</strong> придумай краткое описание для поста</p>
+        <strong>ОБЯЗАТЕЛЬНО</strong> придумай краткое описание для поста
       </mat-error>
     </div>
     <div class="form__editor">
       <h3>Внеси текстовый контент поста:</h3>
       <quill-editor [modules]="quillConfig" formControlName="content" placeholder="В этом поле можешь внести основной контент своего поста"></quill-editor>
       <mat-error *ngIf="formEditor.get('content')?.errors?.['required']">
-        <p><strong>ОБЯЗАТЕЛЬНО</strong> добавь текст в свой пост</p>
+        <strong>ОБЯЗАТЕЛЬНО</strong> добавь текст в свой пост
       </mat-error>
     </div>
     <div class="form__editor">
@@ -40,7 +40,7 @@
       <quill-editor [modules]="quillConfigImg"  placeholder="Вставь в этом поле фото для своего поста" formControlName="img"></quill-editor>
     </div>
     <mat-error *ngIf="formEditor.get('img')?.errors?.['required']">
-      <p><strong>ОБЯЗАТЕЛЬНО</strong> добавь фотку</p>
+      <strong>ОБЯЗАТЕЛЬНО</strong> добавь фотку
     </mat-error>
     <button
       class="form__btn"

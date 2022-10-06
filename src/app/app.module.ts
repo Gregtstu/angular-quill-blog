@@ -21,6 +21,7 @@ import {MatInputModule} from "@angular/material/input";
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -31,24 +32,25 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     FavoritePageComponent,
     MainPageComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    QuillModule.forRoot(),
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    HttpClientModule,
-    MatCardModule,
-    MatPaginatorModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        QuillModule.forRoot(),
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        HttpClientModule,
+        MatCardModule,
+        MatPaginatorModule,
+        MatProgressSpinnerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
