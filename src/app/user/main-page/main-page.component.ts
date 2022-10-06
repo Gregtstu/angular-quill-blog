@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {ApiService} from "../../settings/services/api.service";
+import {IPosts} from "../../settings/interfaces/iposts";
 
 @Component({
   selector: 'app-main-page',
@@ -11,12 +12,13 @@ import {ApiService} from "../../settings/services/api.service";
 
 })
 export class MainPageComponent implements OnInit {
-  public displayedColumns: string[] = ['select', 'title', 'favorite'];
+  public displayedColumns: string[] = ['selectCategory', 'title', 'favorite'];
   public dataSource!: MatTableDataSource<any>;
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  public img: any;
+  public post!: any;
 
   constructor(private api:ApiService) { }
 
@@ -27,9 +29,9 @@ export class MainPageComponent implements OnInit {
   getAllPosts():void{
     this.api.getAll().subscribe({
       next:(res)=>{
-       this.img =  res.img
-        console.log(res)
-         this.dataSource = new MatTableDataSource(res);
+       this.post =  res
+
+        this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },

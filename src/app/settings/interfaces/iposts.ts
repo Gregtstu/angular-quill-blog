@@ -1,9 +1,11 @@
 export interface IPosts {
-  category: string,
+  selectCategory: string,
   title:string,
+  description:string,
   foto:string,
   content:string,
   img: string,
   data?: Date,
-  favorite: boolean
+  favorite: boolean,
+  comments?:[]
 }

@@ -9,9 +9,9 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <!-- select Column -->
-      <ng-container matColumnDef="select">
+      <ng-container matColumnDef="selectCategory">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Категория</th>
-        <td mat-cell *matCellDef="let row"> {{row.select}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.selectCategory}} </td>
       </ng-container>
 
       <!-- title Column -->
@@ -21,8 +21,9 @@
           <mat-card class="example-card">
             <mat-card-title-group>
               <mat-card-title>{{row.title}}</mat-card-title>
-              <mat-card-subtitle>{{row.data | date}}</mat-card-subtitle>
-              <quill-view-html [content]="img"></quill-view-html>
+              <mat-card-subtitle> Дата побликации:{{row.data | date}}, Оставлено комментариев () </mat-card-subtitle>
+              <mat-card-subtitle style="max-width: 900px">{{row.description}}</mat-card-subtitle>
+              <quill-view-html content="{{row.img}}" ></quill-view-html>
             </mat-card-title-group>
             <mat-card-actions>
               <button mat-raised-button color="primary">Открыть</button>

@@ -3,7 +3,7 @@
     <h3>Выбери вид поста:</h3>
     <mat-form-field appearance="outline">
       <mat-label>Вид поста</mat-label>
-      <mat-select formControlName="category">
+      <mat-select formControlName="selectCategory">
         <mat-option value="Электроника">Электроника</mat-option>
         <mat-option value="Спорт">Спорт</mat-option>
       </mat-select>
@@ -21,13 +21,13 @@
     </mat-error>
     </mat-form-field>
     <h3>Придумай краткое описание поста:</h3>
-    <mat-form-field appearance="outline">
-      <mat-label>Описание</mat-label>
-      <input matInput formControlName="description">
+    <div class="form__editor">
+      <h3>Придумай краткое описание поста::</h3>
+      <quill-editor [modules]="quillConfig" formControlName="description" placeholder="В этом кратко опиши свой пост"></quill-editor>
       <mat-error *ngIf="formEditor.get('description')?.errors?.['required']">
         <p><strong>ОБЯЗАТЕЛЬНО</strong> придумай краткое описание для поста</p>
       </mat-error>
-    </mat-form-field>
+    </div>
     <div class="form__editor">
       <h3>Внеси текстовый контент поста:</h3>
       <quill-editor [modules]="quillConfig" formControlName="content" placeholder="В этом поле можешь внести основной контент своего поста"></quill-editor>

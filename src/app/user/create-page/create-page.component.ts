@@ -65,7 +65,7 @@ export class CreatePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.formEditor = this.formBuilder.group({
-      category: ['', Validators.required],
+      selectCategory: ['', Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
       content: ['', Validators.required],
@@ -78,13 +78,15 @@ export class CreatePageComponent implements OnInit {
       return;
     }
     const post:IPosts = {
-      category: this.formEditor.value.select,
+      selectCategory: this.formEditor.value.selectCategory,
       title: this.formEditor.value.title,
+      description: this.formEditor.value.description,
       foto: this.formEditor.value.foto,
       content: this.formEditor.value.content,
       img: this.formEditor.value.img,
       favorite: false,
       data: new Date(),
+      comments: []
     }
 
     this.api.addPost(post).subscribe({
