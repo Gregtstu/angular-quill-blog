@@ -11,7 +11,9 @@
           <button [routerLink]="['/edit', postId.id]" mat-raised-button color="accent">Настройки</button>
         </mat-card-actions>
       </div>
-      <mat-card-content class="card__content">{{post.content}}</mat-card-content>
+      <mat-card-content class="card__content">
+        <quill-view-html [content]="post.content"></quill-view-html>
+      </mat-card-content>
     </mat-card>
   </div>
 

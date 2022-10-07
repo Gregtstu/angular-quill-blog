@@ -23,7 +23,9 @@
               <mat-card-title>{{row.title}}</mat-card-title>
               <mat-card-subtitle> Дата побликации: <strong>{{row.data | date}}</strong>, Оставлено комментариев ()
               </mat-card-subtitle>
-              <mat-card-subtitle style="max-width: 900px">{{row.description}}</mat-card-subtitle>
+              <mat-card-subtitle style="max-width: 900px">
+                <quill-view-html content="{{row.description}}"></quill-view-html>
+              </mat-card-subtitle>
               <quill-view-html content="{{row.img}}"></quill-view-html>
             </mat-card-title-group>
             <mat-card-actions>
