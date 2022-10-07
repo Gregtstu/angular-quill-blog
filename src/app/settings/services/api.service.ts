@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   addPost(post:any):Observable<any>{
-    return this.http.post<any>('https://blog-64472-default-rtdb.firebaseio.com/posts.json', post)
+    return this.http.post<any>('https://blog-4b9a6-default-rtdb.firebaseio.com/posts.json', post)
       .pipe(map(res => {
           return {
             ...post,
@@ -23,7 +23,7 @@ export class ApiService {
   }
 
   getAll():Observable<any> {
-    return this.http.get<any>('https://blog-64472-default-rtdb.firebaseio.com/posts.json')
+    return this.http.get<any>('https://blog-4b9a6-default-rtdb.firebaseio.com/posts.json')
       .pipe( map ( res => {
         return Object.keys(res)
           .map( key => ({

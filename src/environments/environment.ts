@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  fbBDUrl: 'https://blog-64472-default-rtdb.firebaseio.com/',
+  fbBDUrl: 'https://blog-4b9a6-default-rtdb.firebaseio.com/',
 };
 
 /*
