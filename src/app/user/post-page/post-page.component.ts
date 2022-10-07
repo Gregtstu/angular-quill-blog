@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {PostService} from "../../settings/services/post.service";
 import {ActivatedRoute} from "@angular/router";
 import {LocalStorageService} from "../../settings/services/local-storage.service";
+import {MatDialog} from "@angular/material/dialog";
+
+
+
 
 @Component({
   selector: 'app-post-page',
@@ -16,7 +20,8 @@ export class PostPageComponent implements OnInit {
   constructor(
     private postServ: PostService,
     private rout: ActivatedRoute,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private dialog:MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -36,5 +41,11 @@ export class PostPageComponent implements OnInit {
   addFavorite(id: string): void {
     this.disableded = true;
     this.localStorage.addLs(this.post, this.postId.id);
+  }
+
+  openDialog() {
+    // this.dialog.open(DialogComponent, {
+    //   width: '40%'
+    // })
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LocalStorageService} from "../../../settings/services/local-storage.service";
 
 @Component({
   selector: 'app-main-layout',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private localStorage:LocalStorageService) { }
 
   ngOnInit(): void {
   }
+
 
 }

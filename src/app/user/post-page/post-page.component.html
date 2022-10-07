@@ -8,9 +8,7 @@
         </div>
         <mat-card-actions>
           <button [routerLink]="['/']" mat-raised-button color="primary">Вернуться назад</button>
-          <button mat-raised-button color="accent" (click)="addFavorite(postId.id)" [disabled]="disableded">добавить в
-            избранное
-          </button>
+          <button [routerLink]="['/edit', postId.id]" mat-raised-button color="accent">Настройки</button>
         </mat-card-actions>
       </div>
       <mat-card-content class="card__content">{{post.content}}</mat-card-content>

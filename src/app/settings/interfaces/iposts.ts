@@ -5,6 +5,7 @@ export interface IPosts {
   foto:string,
   content:string,
   img: string,
+  id?: any,
   data?: Date,
   favorite: boolean,
   comments?:[]

@@ -1,0 +1,58 @@
+<section class="aditPost">
+  <div class="aditPost__header">
+    <button  mat-raised-button color="warn" (click)="delete(post)">Удалить</button>
+    <button mat-raised-button color="accent" (click)="addLocalStoragePost();"  [disabled]="disable">В избранное</button>
+    <button mat-raised-button color="primary" (click)="flag = !flag" [disabled]="flag">Редактировать</button>
+  </div>
+  <form class="addPost__form form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="flag" >
+    <h3>Выбери вид поста:</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>Вид поста</mat-label>
+      <mat-select formControlName="selectCategory">
+        <mat-option value="Электроника">Электроника</mat-option>
+        <mat-option value="Спорт">Спорт</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('selectCategory')?.errors?.['required']">
+        <strong>ОБЯЗАТЕЛЬНО</strong> выбери вид поста
+      </mat-error>
+    </mat-form-field>
+    <h3>Придумай заголовок поста:</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>Заголовок</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="form.get('title')?.errors?.['required']">
+        <strong>ОБЯЗАТЕЛЬНО</strong> придумай заголовок для поста
+      </mat-error>
+    </mat-form-field>
+    <div class="form__editor">
+    <h3>Придумай краткое описание поста:</h3>
+      <quill-editor [modules]="quillConfig"  placeholder="В этом кратко опиши свой пост" formControlName="description"></quill-editor>
+      <mat-error *ngIf="form.get('description')?.errors?.['required']">
+        <strong>ОБЯЗАТЕЛЬНО</strong> придумай краткое описание для поста
+      </mat-error>
+    </div>
+    <div class="form__editor">
+      <h3>Внеси текстовый контент поста:</h3>
+      <quill-editor [modules]="quillConfig"  placeholder="В этом поле можешь внести основной контент своего поста" formControlName="content"></quill-editor>
+      <mat-error *ngIf="form.get('content')?.errors?.['required']">
+        <strong>ОБЯЗАТЕЛЬНО</strong> добавь текст в свой пост
+      </mat-error>
+    </div>
+    <div class="form__editor">
+      <h3>Добавь фотографию:</h3>
+      <quill-editor [modules]="quillConfigImg"  placeholder="Вставь в этом поле фото для своего поста" formControlName="img"></quill-editor>
+    </div>
+    <mat-error *ngIf="form.get('img')?.errors?.['required']">
+      <strong>ОБЯЗАТЕЛЬНО</strong> добавь фотку
+    </mat-error>
+    <button
+      class="form__btn"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+    >
+      Редактировать
+    </button>
+  </form>
+</section>

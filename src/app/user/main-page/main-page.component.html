@@ -1,5 +1,5 @@
 <section class="allPosts">
-  <div class="wrapper" *ngIf="post; else loading">
+<!--  <div class="wrapper" *ngIf="post; else loading">-->
   <mat-form-field appearance="standard">
     <mat-label>Поиск...</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="введи ключевое слово" #input>
@@ -46,10 +46,10 @@
 
     <mat-paginator [pageSizeOptions]="[3, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
-</div>
-  <ng-template #loading>
-    <mat-spinner></mat-spinner>
-  </ng-template>
+<!--</div>-->
+<!--  <ng-template #loading>-->
+<!--    <mat-spinner></mat-spinner>-->
+<!--  </ng-template>-->
 </section>
 
 

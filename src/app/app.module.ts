@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { QuillModule } from 'ngx-quill';
-import { MainLayoutComponent } from './user/shared/main-layout/main-layout.component';
-import { PostPageComponent } from './user/post-page/post-page.component';
-import { CreatePageComponent } from './user/create-page/create-page.component';
-import { FavoritePageComponent } from './user/favorite-page/favorite-page.component';
-import { MainPageComponent } from './user/main-page/main-page.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {QuillModule} from 'ngx-quill';
+import {MainLayoutComponent} from './user/shared/main-layout/main-layout.component';
+import {PostPageComponent} from './user/post-page/post-page.component';
+import {CreatePageComponent} from './user/create-page/create-page.component';
+import {FavoritePageComponent} from './user/favorite-page/favorite-page.component';
+import {MainPageComponent} from './user/main-page/main-page.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -22,6 +22,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { EditPageComponent } from './user/edit-page/edit-page.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -30,28 +32,31 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     PostPageComponent,
     CreatePageComponent,
     FavoritePageComponent,
-    MainPageComponent
+    MainPageComponent,
+    EditPageComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        QuillModule.forRoot(),
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatIconModule,
-        MatTableModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatInputModule,
-        HttpClientModule,
-        MatCardModule,
-        MatPaginatorModule,
-        MatProgressSpinnerModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    QuillModule.forRoot(),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    HttpClientModule,
+    MatCardModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

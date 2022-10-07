@@ -20,4 +20,12 @@ export class PostService {
         }
       }));
   }
+
+  editPost(post: any):Observable<any>{
+    return this.http.put<any>(`${environment.fbBDUrl}/posts/${post.id}.json`, post);
+  }
+
+  deletePost(id: string){
+    return this.http.delete<any>(`${environment.fbBDUrl}/posts/${id}.json`);
+  }
 }
