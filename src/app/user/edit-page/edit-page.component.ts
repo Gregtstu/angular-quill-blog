@@ -110,7 +110,7 @@ export class EditPageComponent implements OnInit {
   addLocalStoragePost(){
     this.disable = true;
     this.localStarage.addLs(this.post, this.post.id);
-    alert('Добавлен в избранные');
+    // alert('Добавлен в избранные');
   }
 
   allPostsLS(){
